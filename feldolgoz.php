@@ -1,6 +1,6 @@
 <?php
 
-require './AB.php';
+require_once './AB.php';
 
 $ab = new AB();
 $adat = $_GET['kermezo'];
