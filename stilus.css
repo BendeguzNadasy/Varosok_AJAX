@@ -18,3 +18,14 @@ header, article, footer {
 h1, footer p {
     text-align: center;
 }
+
+table tr:nth-child(odd) {
+    background-color: burlywood;
+}
+
+table * {
+    border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}
