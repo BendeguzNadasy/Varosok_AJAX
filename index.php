@@ -23,6 +23,7 @@
                     <input type="text" id="kermezo">
                 </form>
                 <div id="tart"></div>
+                <div id="rend"></div>
             </article>
             <footer>
                 <p>Készítette: Nádasy Bendegúz</p>
