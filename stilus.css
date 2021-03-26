@@ -29,3 +29,7 @@ table * {
 table {
     border-collapse: collapse;
 }
+
+.elrejt {
+    display: none;
+}
