@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#rend').delegate('th', 'click', rendez);
+    $('#rend').delegate('button', 'click', torol);
     $('#kermezo').keyup(beolvas);
 });
 
@@ -36,12 +37,16 @@ function tablazatKiir() {
     var tblTart = "<table><tr>" +
             "<th id='nev'>Városnév</th>" +
             "<th id='jaras'>Járás</th>" +
-            "<th id='megye'>Megye</th></tr>";
+            "<th id='megye'>Megye</th>" +
+            "<th></th>" +
+            "<th></th></tr>";
 
     for (var varos in varosok) {
         tblTart += "<tr><td>" + varosok[varos].nev + "</td>";
         tblTart += "<td>" + varosok[varos].jaras + "</td>";
-        tblTart += "<td>" + varosok[varos].megye + "</td></tr>";
+        tblTart += "<td>" + varosok[varos].megye + "</td>";
+        tblTart += "<td><button data_id='"+varosok[varos].ID+"'>Módosít</button></td>";
+        tblTart += "<td><button id='"+varosok[varos].ID+"'>Töröl</button></td></tr>";
     }
     tblTart += "</table>";
     $('#rend').html(tblTart);
@@ -62,4 +67,19 @@ function rendez() {
     }
     sorrend = !sorrend;
     tablazatKiir();
+}
+
+function torol() {
+    $.ajax({
+        type: "DELETE",
+        url: "torol.php?ID=" + $(this).attr('id'),
+        success: function (result) {
+            beolvas();
+            console.log("törölve");
+            
+        },
+        error: function () {
+            alert("Hiba a törlésekor!");
+        }
+    });
 }
